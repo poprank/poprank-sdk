@@ -1,6 +1,6 @@
 {
     "name": "@poprank/sdk",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "PopRank's NFT rarity and aesthetic ranking logic",
     "publishConfig": {
         "access": "public",

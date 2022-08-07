@@ -72,7 +72,7 @@ export interface Nft extends NftBase {
 /**
  * NFT with initial traits, aka no rarity scores
  */
-export interface NftWithInitialTrait extends NftInit {
+export interface NftWithInitialTraits extends NftInit {
     traits: TraitInit[];
 }
 
