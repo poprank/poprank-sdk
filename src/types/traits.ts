@@ -20,7 +20,7 @@ export interface TraitBase extends TraitInit {
 /**
  * Base model for the rows we get back from the DB when querying for a trait
  */
-export interface TraitFromDb extends TraitInit {
+export interface TraitFromDb extends TraitBase {
     id: string;
     traitTypeId: string;
 }
