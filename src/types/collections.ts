@@ -16,7 +16,7 @@ export type CollectionType = 'default' | 'prelaunch';
 export type GroupedTraits = Record<string, Trait[]>;
 
 /**
- * Collection stats around how many NFTs have been in rounds
+ * All up stats around how many NFTs have been in rounds
  */
 export interface Exposure {
     totalItemsSeen: number;
@@ -29,6 +29,21 @@ export const collectionStates = ['not-enough'] as const;
  * State of this collection's "aesthetic ranking reliability"
  */
 export type CollectionState = typeof collectionStates[number];
+
+/**
+ * Exposure stats for a specific collection
+ */
+export interface CollectionSeenness {
+    /**
+     * Num of times NFTs have been seen in collection
+     */
+    seen: number;
+    /**
+     * Number of rounds played
+     */
+    validPlayed: number;
+    percentSeen: number;
+}
 
 /**
  * Base attributes for the collection
@@ -72,5 +87,5 @@ export interface Collection extends CollectionBase {
     readonly floorPrice?: number;
 }
 
-export type CollectionWithSeen = Exposure & Collection;
+export type CollectionWithSeen = CollectionSeenness & Collection;
 export type CollectionWithSeenAndTotalRounds = CollectionWithSeen & { totalRounds: number; };
