@@ -37,7 +37,6 @@ export interface TraitWithCheapestFromDb extends TraitFromDb {
 
 /**  The subset of an NFT we care about for the trait overview table */
 export interface TraitOverviewNft {
-
     readonly id: string;
     readonly imageUrl: string;
     readonly collection: string;

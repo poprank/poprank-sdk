@@ -1,5 +1,5 @@
 import { Chain } from './general';
-import { Trait, TraitInit } from './traits';
+import { Trait, TraitBase, TraitInit } from './traits';
 
 export const sortByTypes = ['aesthetic', 'price', 'rarityTraitSum', 'rarityJaccard'] as const;
 export type SortBy = typeof sortByTypes[number];
@@ -70,10 +70,17 @@ export interface Nft extends NftBase {
 }
 
 /**
+ * NFT with initial traits, aka no rarity scores
+ */
+export interface NftWithInitialTrait extends NftInit {
+    traits: TraitInit[];
+}
+
+/**
  * NFT after we've rated the rarity of each trait and NFT
  */
 export interface NftWithRatedTraits extends NftInit {
-    traits: TraitInit[];
+    traits: TraitBase[];
     rarityTraitSum: number;
     rarityJaccard: number;
 }
