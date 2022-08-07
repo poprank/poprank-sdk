@@ -37,7 +37,7 @@
         "clean": "rimraf ./lib",
         "example": "cd example && npx ts-node example.ts",
         "lint": "eslint . --ext .ts",
-        "test": "jest"
+        "test": "jest --passWithNoTests"
     },
     "keywords": [],
     "author": {
