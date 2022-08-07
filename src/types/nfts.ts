@@ -16,12 +16,6 @@ export interface NftInit {
     readonly name: string;
     readonly collection: string;
     readonly address: string;
-    readonly timesSeen: number;
-    readonly timesWon: number;
-    readonly timesDrawn: number;
-    readonly rating: number;
-    readonly aestheticRank: number;
-    readonly aestheticRankReliability?: number;
     readonly chain?: Chain;
     readonly marketplaceUrl?: string;
     /**
@@ -58,6 +52,12 @@ export interface NftBase extends NftInit {
     readonly rarityJaccardRank: number;
     readonly rarityJaccard: number;
     readonly fallbackUrl: string;
+    readonly timesSeen: number;
+    readonly timesWon: number;
+    readonly timesDrawn: number;
+    readonly rating: number;
+    readonly aestheticRank: number;
+    readonly aestheticRankReliability?: number;
 }
 
 /**
@@ -83,12 +83,6 @@ export interface NftWithRatedTraits extends NftInit {
     traits: TraitBase[];
     rarityTraitSum: number;
     rarityJaccard: number;
-}
-
-/**
- * NFT after we've calculated the rarity rankings of all NFTs within a collection
- */
-export interface NftWithRank extends NftWithRatedTraits {
     rarityTraitSumRank: number;
     rarityJaccardRank: number;
 }
