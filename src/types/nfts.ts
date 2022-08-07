@@ -30,6 +30,9 @@ export interface NftInit {
     readonly animationUrl?: string | null;
 }
 
+/**
+ * NFT schema as returned from tokenURI
+ */
 export interface NftFromContract {
     id: string;
     name: string;
@@ -87,4 +90,8 @@ export interface NftWithRatedTraits extends NftInit {
     rarityJaccardRank: number;
 }
 
+/**
+ * Pair of NFTs, used as the return for our /double endpoint
+ * for head-to-head rounds
+ */
 export type Pair = [Nft, Nft];

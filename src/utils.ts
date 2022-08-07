@@ -1,5 +1,10 @@
 import { Nft } from './types/nfts';
 
+/**
+ * Base aesthetic attributes for an NFT.
+ * Used when we are transforming NFTs from their
+ * tokenURI / API response into PopRank NFTs
+ */
 export const aestheticBaseAttributes: Pick<Nft, 'aestheticRank' | 'aestheticRankReliability' | 'rating' | 'timesDrawn' | 'timesSeen' | 'timesWon'> = {
     rating: 1200,
     aestheticRank: 1,

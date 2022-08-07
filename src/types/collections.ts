@@ -42,6 +42,10 @@ export interface CollectionSeenness {
      * Number of rounds played
      */
     validPlayed: number;
+    /**
+     * Percentage of the collection's NFTs that have been in one or more
+     * rounds
+     */
     percentSeen: number;
 }
 
