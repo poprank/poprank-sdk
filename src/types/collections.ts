@@ -1,10 +1,23 @@
 import { Chain } from './general';
 import { Trait } from './traits';
 
+/**
+ * Collection categories
+ */
 export type Category = 'avatar' | 'gaming' | 'gen-art';
+/**
+ * Type of collection, aka whether it lives on `poprank.io`
+ * or prelaunch.poprank.io
+ */
 export type CollectionType = 'default' | 'prelaunch';
+/**
+ * All of a collection's traits grouped by trait_type
+ */
 export type GroupedTraits = Record<string, Trait[]>;
 
+/**
+ * Collection stats around how many NFTs have been in rounds
+ */
 export interface Exposure {
     totalItemsSeen: number;
     totalPercentSeen: number;
@@ -12,20 +25,14 @@ export interface Exposure {
 }
 
 export const collectionStates = ['not-enough'] as const;
+/**
+ * State of this collection's "aesthetic ranking reliability"
+ */
 export type CollectionState = typeof collectionStates[number];
 
-export interface CollectionSeenness {
-    /**
-     * Num of times NFTs have been seen in collection
-     */
-    seen: number;
-    /**
-     * Number of rounds played
-     */
-    validPlayed: number;
-    percentSeen: number;
-}
-
+/**
+ * Base attributes for the collection
+ */
 export interface CollectionBase {
     readonly slug: string;
     readonly address: string;
@@ -65,9 +72,5 @@ export interface Collection extends CollectionBase {
     readonly floorPrice?: number;
 }
 
-export type CollectionWithSeen = CollectionSeenness & Collection;
+export type CollectionWithSeen = Exposure & Collection;
 export type CollectionWithSeenAndTotalRounds = CollectionWithSeen & { totalRounds: number; };
-
-// ================= ENDPOINT TYPES =================
-
-// ==================================================
