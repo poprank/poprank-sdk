@@ -12,5 +12,4 @@ interface FailureResponse {
 }
 
 export type Response<T> = SuccessResponse<T> | FailureResponse;
-
 // ========================================================
