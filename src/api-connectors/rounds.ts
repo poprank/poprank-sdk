@@ -3,9 +3,9 @@ import { SERVER_IP } from '../constants';
 import { Response } from '../types/general';
 import { RoundWithUrls } from '../types/rounds';
 
-/** Gets number of rounds played for a specific collection */
+/** Gets number of rounds played by player for a specific collection */
 export const getRounds = async (slug: string, player: string, serverUrl = SERVER_IP): Promise<number> => {
-    const res = (await axios.get<Response<number>>(`${serverUrl}/rounds/double`, { params: { slug, player } })).data;
+    const res = (await axios.get<Response<number>>(`${serverUrl}/rounds/${slug}`, { params: { player, count: true } })).data;
 
     if (!res.success) {
         throw 'Failed to get rounds';
