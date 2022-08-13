@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { SERVER_IP } from '../constants';
-import { Response } from '../types/general';
+import { APIResponse } from '../types/general';
 import { Nft, SortBy } from '../types/nfts';
 
 /** Get ranking data for numerous assets */
@@ -23,7 +23,7 @@ export const getNfts = async (
     serverUrl = SERVER_IP,
 ): Promise<Nft[]> => {
     try {
-        const res = (await axios.get<Response<Nft[]>>(`${serverUrl}/nfts/${slug}`, {
+        const res = (await axios.get<APIResponse<Nft[]>>(`${serverUrl}/nfts/${slug}`, {
             params: {
                 offset,
                 count,
