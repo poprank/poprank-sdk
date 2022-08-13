@@ -10,9 +10,9 @@ interface FailureResponse {
     readonly success: false;
     readonly data: string;
 }
-
 /**
  * Success or failure API response
  */
-export type Response<T> = SuccessResponse<T> | FailureResponse;
+export type APIResponse<T> = SuccessResponse<T> | FailureResponse;
+
 // ========================================================
