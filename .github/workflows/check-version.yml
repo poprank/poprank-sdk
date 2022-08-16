@@ -1,0 +1,17 @@
+name: Check package.json Version Bump
+on: pull_request
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - name: Check if version has been updated
+        id: check
+        uses: EndBug/version-check@v2.1.0
+      - name: Log when changed
+        if: steps.check.outputs.changed == 'false'
+        run: exit 1
