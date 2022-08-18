@@ -6,6 +6,7 @@ lib/
 
 example/*.json
 example/*.html
+example.ts
 
 # Ignore `yarn pack` output
 *.tgz
