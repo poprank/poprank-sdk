@@ -4,11 +4,11 @@
 
  This package contains all the building blocks for interacting with the PopRank ecosystem! We use this package ourselves to power `poprank.io` and our various other offerings.
 
-It currently contains two main sections: **types** and **api-connectors**
+It currently contains two main sections: **types** and **client**
 
 Types are fairly self explanatory.
 
-**api-connectors** are thin wrappers on top of our endpoints that make it easier to build with PopRank, by typing the requests and responses.
+**client** are thin wrappers on top of our endpoints that make it easier to build with PopRank, by typing the requests and responses.
 
 For in-depth documentation on all the PopRank endpoints, see our [API documentation](https://poprank.readme.io/reference/api-overview).
 
