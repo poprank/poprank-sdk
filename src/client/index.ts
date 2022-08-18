@@ -1,4 +1,4 @@
-export { getCollections, getCollectionOverview, getNumOwners } from './collections';
+export { getCollection, getCollections, getCollectionOverview, getNumOwners } from './collections';
 export { getDiscordUsername } from './discordUsername';
 export { getPlayerLeaderboard } from './leaderboard';
 export { getNft, getNfts } from './nfts';
