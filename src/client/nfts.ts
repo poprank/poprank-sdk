@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SERVER_IP } from '../constants';
+import { API_BASE_URL } from '../constants';
 import { APIResponse } from '../types/general';
 import { Nft, SortBy } from '../types/nfts';
 
@@ -20,7 +20,7 @@ export const getNfts = async (
     name?: string,
     user?: string,
     onlyUserTokens?: boolean,
-    serverUrl = SERVER_IP,
+    serverUrl = API_BASE_URL,
 ): Promise<Nft[]> => {
     try {
         const res = (await axios.get<APIResponse<Nft[]>>(`${serverUrl}/nfts/${slug}`, {
@@ -61,7 +61,7 @@ export const getNft = async (
     showTraits?: boolean,
     hideRank?: boolean,
     user?: string,
-    serverUrl = SERVER_IP,
+    serverUrl = API_BASE_URL,
 ): Promise<Nft> => {
     const res = (await axios.get(`${serverUrl}/nfts/${slug}/${id}`, {
         params: {

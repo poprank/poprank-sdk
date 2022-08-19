@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { SERVER_IP } from '../constants';
+import { API_BASE_URL } from '../constants';
 import { APIResponse } from '../types/general';
 
 /** Gets the Discord username for a user */
-export const getDiscordUsername = async (id: string, serverUrl = SERVER_IP): Promise<string> => {
+export const getDiscordUsername = async (id: string, serverUrl = API_BASE_URL): Promise<string> => {
     try {
         const response = (await axios.get<APIResponse<string>>(`${serverUrl}/discord/user`, { params: { id } })).data;
 

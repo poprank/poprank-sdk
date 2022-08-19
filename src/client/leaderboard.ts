@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { SERVER_IP } from '../constants';
+import { API_BASE_URL } from '../constants';
 import { APIResponse } from '../types/general';
 import { UserLeaderboard } from '../types/leaderboards';
 
 /** Get leaderboard */
-export const getPlayerLeaderboard = async (playerAddresses: string, slug?: string, serverUrl = SERVER_IP): Promise<UserLeaderboard[]> => {
+export const getPlayerLeaderboard = async (playerAddresses: string, slug?: string, serverUrl = API_BASE_URL): Promise<UserLeaderboard[]> => {
     try {
         const result = (await axios.get<APIResponse<UserLeaderboard[]>>(`${serverUrl}/leaderboard/player${slug ? '/' + slug : ''}`, { params: { playerAddresses } })).data;
 

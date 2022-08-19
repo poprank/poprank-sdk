@@ -1,1 +1,1 @@
-export const SERVER_IP = 'https://api.poprank.io';
+export const API_BASE_URL = 'https://api.poprank.io';
