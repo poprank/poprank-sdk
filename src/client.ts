@@ -253,4 +253,18 @@ export class PopRankClient {
 
         return handleResponse(response);
     }
+
+    /**
+     * Get the Discord username of a Discord user with given `id`.
+     * @summary Get Discord username.
+     * @param id The Discord id.
+     */
+    async getDiscordUsername(id: string): Promise<string> {
+        const response = (await this.client.get<APIResponse<string>>(
+            '/discord/user',
+            { params: { id } },
+        )).data;
+
+        return handleResponse(response);
+    }
 }
