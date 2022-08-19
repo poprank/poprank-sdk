@@ -65,7 +65,7 @@ export class PopRankClient {
             { params: { slug } },
         )).data;
 
-        handleResponse(response);
+        return handleResponse(response);
     }
 
     /**
