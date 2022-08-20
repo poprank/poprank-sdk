@@ -95,3 +95,32 @@ export interface NftWithRatedTraits extends NftInit {
  * for head-to-head rounds
  */
 export type Pair = [Nft, Nft];
+
+/**
+ * Options object to pass into `getNfts()`.
+ */
+export interface GetNftsOptions {
+    readonly offset?: number;
+    readonly count?: number;
+    readonly asc?: boolean;
+    readonly sortBy?: SortBy;
+    readonly traitFilters: string[];
+    readonly minAesthetic?: number;
+    readonly maxAesthetic?: number;
+    readonly minRarityTraitSum?: number;
+    readonly maxRarityTraitSum?: number;
+    readonly minPrice?: number;
+    readonly maxPrice?: number;
+    readonly name?: string;
+    readonly user?: string;
+    readonly onlyUserTokens?: boolean;
+}
+
+/**
+ * Options object to pass into `getNft()`.
+ */
+export interface GetNftOptions {
+    readonly price?: boolean;
+    readonly rank?: boolean;
+    readonly traits?: boolean;
+}
