@@ -124,7 +124,7 @@ export class PopRankClient {
      * @param slug The collection identifier used in the PopRank collection page URL.
      * @param player Although optional, required to validate the round.
      */
-    async getNFTPair(slug: string, player?: string): Promise<Pair> {
+    async getNftPair(slug: string, player?: string): Promise<Pair> {
         const response = (await this.client.get<APIResponse<Pair>>(
             `/nfts/${slug}/double`,
             { params: { player } },
