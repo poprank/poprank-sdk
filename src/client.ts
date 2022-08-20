@@ -1,6 +1,9 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { API_BASE_URL } from './constants';
-import { APIResponse, CollectionWithSeen, Nft, Pair, RoundDir, RoundWithUrls, SortBy, TraitOverview, UserLeaderboard } from './types';
+import {
+    APIResponse, CollectionWithSeen, GetNftOptions, GetNftsOptions, Nft, Pair,
+    RoundDir, RoundWithUrls, TraitOverview, UserLeaderboard,
+} from './types';
 
 /** If successful, returns `data`. Otherwise, throws an error. */
 const handleResponse = <T>(response: APIResponse<T>) => {
@@ -27,7 +30,8 @@ export class PopRankClient {
      * is updated on the server, before the response is sent. 
      * @summary Get all collections.
      * @param slug The collection identifier used in the PopRank collection page URL.
-     * @param player A player's wallet address.
+     *             If provided, the traits object is included in the response.
+     * @param player A player's wallet address .
      */
     async getCollections(slug?: string, player?: string): Promise<CollectionWithSeen[]> {
         const response = (await this.client.get<APIResponse<CollectionWithSeen[]>>(
@@ -44,6 +48,7 @@ export class PopRankClient {
      * effectively doubles as a data refresh.
      * @summary Get a collection.
      * @param slug The collection identifier used in the PopRank collection page URL.
+     * *           If provided, the traits object is included in the response.
      */
     async getCollection(slug: string): Promise<CollectionWithSeen[]> {
         const response = (await this.client.get<APIResponse<CollectionWithSeen[]>>(
@@ -84,44 +89,15 @@ export class PopRankClient {
 
     /**
      * Get ranking data for numerous assets.
-     * @summary Get a collection's NFTs
+     * @summary Get a collection's NFTs.
+     * @param slug The collection identifier used in the PopRank collection page URL.
+     * @param options Optional object to paginate and filter response.
      */
-    async getNfts(
-        offset: number,
-        count: number,
-        slug: string,
-        asc?: boolean,
-        sortBy?: SortBy,
-        traitFilters: string[] = [],
-        minAesthetic?: number,
-        maxAesthetic?: number,
-        minRarityTraitSum?: number,
-        maxRarityTraitSum?: number,
-        minPrice?: number,
-        maxPrice?: number,
-        name?: string,
-        user?: string,
-        onlyUserTokens?: boolean,
-    ): Promise<Nft[]> {
-        const response = (await this.client.get<APIResponse<Nft[]>>(`/nfts/${slug}`, {
-            params: {
-                offset,
-                count,
-                asc,
-                sortBy,
-                // We only need to pass the id to the server, helps minimise the uri length as much as possible
-                traitFilters,
-                minAesthetic,
-                maxAesthetic,
-                minRarityTraitSum,
-                maxRarityTraitSum,
-                minPrice,
-                maxPrice,
-                name,
-                user,
-                onlyUserTokens,
-            },
-        })).data;
+    async getNfts(slug: string, options?: GetNftsOptions): Promise<Nft[]> {
+        const response = (await this.client.get<APIResponse<Nft[]>>(
+            `/nfts/${slug}`,
+            { params: options },
+        )).data;
 
         return handleResponse(response);
     }
@@ -130,22 +106,14 @@ export class PopRankClient {
      * Gets the ranking data for a single asset.
      * @summary Get an NFT.
      * @param slug The collection identifier used in the PopRank collection page URL.
-     * @param id The NFT's token ID
+     * @param id The NFT's token ID.
+     * @param options Optional object to include more data in the response.
      */
-    async getNft(
-        slug: string,
-        id: string,
-        showPrice?: boolean,
-        showTraits?: boolean,
-        hideRank?: boolean,
-    ): Promise<Nft> {
-        const response = (await this.client.get(`/nfts/${slug}/${id}`, {
-            params: {
-                showPrice,
-                hideRank,
-                showTraits,
-            },
-        })).data;
+    async getNft(slug: string, id: string, options?: GetNftOptions): Promise<Nft> {
+        const response = (await this.client.get(
+            `/nfts/${slug}/${id}`,
+            { params: { options } },
+        )).data;
 
         return handleResponse(response);
     }
@@ -154,8 +122,9 @@ export class PopRankClient {
      * Gets a random pair of NFTs to rank.
      * @summary Get NFT pair.
      * @param slug The collection identifier used in the PopRank collection page URL.
+     * @param player Although optional, required to validate the round.
      */
-    async getPair(slug: string, player?: string): Promise<Pair> {
+    async getNFTPair(slug: string, player?: string): Promise<Pair> {
         const response = (await this.client.get<APIResponse<Pair>>(
             `/nfts/${slug}/double`,
             { params: { player } },
@@ -257,7 +226,7 @@ export class PopRankClient {
     /**
      * Get the Discord username of a Discord user with given `id`.
      * @summary Get Discord username.
-     * @param id The Discord id.
+     * @param id The Discord ID.
      */
     async getDiscordUsername(id: string): Promise<string> {
         const response = (await this.client.get<APIResponse<string>>(
