@@ -30,7 +30,7 @@ export class PopRankClient {
      * @param player A player's wallet address.
      */
     async getCollections(slug?: string, player?: string): Promise<CollectionWithSeen[]> {
-        const response = (await axios.get<APIResponse<CollectionWithSeen[]>>(
+        const response = (await this.client.get<APIResponse<CollectionWithSeen[]>>(
             '/collections',
             { params: { slug, player } },
         )).data;
@@ -60,7 +60,7 @@ export class PopRankClient {
      * @param slug The collection identifier used in the PopRank collection page URL.
      */
     async getCollectionOverview(slug: string) {
-        const response = (await axios.get<APIResponse<Record<string, TraitOverview[]>>>(
+        const response = (await this.client.get<APIResponse<Record<string, TraitOverview[]>>>(
             '/collection/overview',
             { params: { slug } },
         )).data;
@@ -74,7 +74,7 @@ export class PopRankClient {
      * @param slug The collection identifier used in the PopRank collection page URL.
      */
     async getNumOwners(slug: string) {
-        const response = (await axios.get<APIResponse<number>>(
+        const response = (await this.client.get<APIResponse<number>>(
             '/collection/owners',
             { params: { slug } },
         )).data;
@@ -103,7 +103,7 @@ export class PopRankClient {
         user?: string,
         onlyUserTokens?: boolean,
     ): Promise<Nft[]> {
-        const response = (await axios.get<APIResponse<Nft[]>>(`/nfts/${slug}`, {
+        const response = (await this.client.get<APIResponse<Nft[]>>(`/nfts/${slug}`, {
             params: {
                 offset,
                 count,
@@ -139,7 +139,7 @@ export class PopRankClient {
         showTraits?: boolean,
         hideRank?: boolean,
     ): Promise<Nft> {
-        const response = (await axios.get(`/nfts/${slug}/${id}`, {
+        const response = (await this.client.get(`/nfts/${slug}/${id}`, {
             params: {
                 showPrice,
                 hideRank,
@@ -156,7 +156,7 @@ export class PopRankClient {
      * @param slug The collection identifier used in the PopRank collection page URL.
      */
     async getPair(slug: string, player?: string): Promise<Pair> {
-        const response = (await axios.get<APIResponse<Pair>>(
+        const response = (await this.client.get<APIResponse<Pair>>(
             `/nfts/${slug}/double`,
             { params: { player } },
         )).data;
@@ -169,7 +169,7 @@ export class PopRankClient {
      * @summary Get global rounds.
      */
     async getGlobalRounds(): Promise<number | null> {
-        const response = (await axios.get<APIResponse<number | null>>(
+        const response = (await this.client.get<APIResponse<number | null>>(
             '/rounds',
             { params: { count: true } })
         ).data;
@@ -199,7 +199,7 @@ export class PopRankClient {
      * @param id The NFT's token ID.
      */
     async getNftRounds(slug: string, id: string): Promise<RoundWithUrls[]> {
-        const response = (await axios.get<APIResponse<RoundWithUrls[]>>(
+        const response = (await this.client.get<APIResponse<RoundWithUrls[]>>(
             `/rounds/${slug}/${id}`,
         )).data;
 
@@ -215,7 +215,7 @@ export class PopRankClient {
      * @param dir The direction selected by the player
      */
     async postRound(winner: Nft, loser: Nft, player?: string, dir?: RoundDir): Promise<void> {
-        const response = (await axios.post(
+        const response = (await this.client.post(
             '/rounds',
             { winner, loser, player, dir },
         )).data;
@@ -230,7 +230,7 @@ export class PopRankClient {
      * @param limit Limits the number of players returned in the response. Must be between 1-200, inclusive. Defaults to 50.
      */
     async getGlobalPlayerLeaderboard(playerAddresses?: string, limit?: number): Promise<UserLeaderboard[]> {
-        const response = (await axios.get<APIResponse<UserLeaderboard[]>>(
+        const response = (await this.client.get<APIResponse<UserLeaderboard[]>>(
             '/leaderboard/player',
             { params: { playerAddresses, limit } },
         )).data;
@@ -246,7 +246,7 @@ export class PopRankClient {
      * @param limit Limits the number of players returned in the response. Must be between 1-200, inclusive. Defaults to 50.
      */
     async getCollectionPlayerLeaderboard(slug: string, playerAddresses?: string, limit?: number): Promise<UserLeaderboard[]> {
-        const response = (await axios.get<APIResponse<UserLeaderboard[]>>(
+        const response = (await this.client.get<APIResponse<UserLeaderboard[]>>(
             `/leaderboard/player/${slug}`,
             { params: { playerAddresses, limit } },
         )).data;
