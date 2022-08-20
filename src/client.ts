@@ -112,7 +112,7 @@ export class PopRankClient {
     async getNft(slug: string, id: string, options?: GetNftOptions): Promise<Nft> {
         const response = (await this.client.get(
             `/nfts/${slug}/${id}`,
-            { params: { options } },
+            { params: options },
         )).data;
 
         return handleResponse(response);
