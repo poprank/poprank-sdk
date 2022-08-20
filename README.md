@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://discord.gg/9R5RzdUbXb">
-    <img src="https://poprank.io/logo/wordmark-dark.png" alt="PopRank" width=450 />
+    <img src="https://poprank.io/android-chrome-192x192.png" alt="PopRank" />
   </a>
 </p>
 <p align="center">
