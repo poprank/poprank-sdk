@@ -35,7 +35,7 @@
     ],
     "scripts": {
         "build": "yarn tsc",
-        "ci": "yarn clean && yarn && yarn build",
+        "ci": "yarn && yarn build",
         "clean": "yarn clean:lib && yarn clean:modules",
         "clean:lib": "rimraf lib",
         "clean:modules": "rimraf node_modules",
