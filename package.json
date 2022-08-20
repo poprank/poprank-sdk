@@ -1,6 +1,6 @@
 {
     "name": "@poprank/sdk",
-    "version": "1.0.15",
+    "version": "1.0.16",
     "description": "PopRank API client and types",
     "keywords": [
         "api",
@@ -35,7 +35,7 @@
     ],
     "scripts": {
         "build": "yarn tsc",
-        "ci": "yarn clean && yarn && yarn build",
+        "ci": "yarn && yarn build",
         "clean": "yarn clean:lib && yarn clean:modules",
         "clean:lib": "rimraf lib",
         "clean:modules": "rimraf node_modules",
