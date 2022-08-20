@@ -1,21 +1,47 @@
 {
     "name": "@poprank/sdk",
-    "version": "1.0.13",
-    "description": "PopRank's NFT rarity and aesthetic ranking logic",
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org/"
+    "version": "1.0.15",
+    "description": "PopRank API client and types",
+    "keywords": [
+        "api",
+        "client",
+        "collections",
+        "crypto",
+        "leaderboard",
+        "models",
+        "nft",
+        "rounds",
+        "types"
+    ],
+    "homepage": "https://github.com/poprank/sdk#readme",
+    "bugs": {
+        "url": "https://github.com/poprank/sdk/issues",
+        "email": "info@poprank.io"
     },
-    "license": "MIT",
     "repository": {
         "type": "git",
         "url": "https://github.com/poprank/sdk"
     },
+    "license": "MIT",
+    "author": {
+        "name": "PopRank",
+        "email": "info@poprank.io",
+        "url": "https://poprank.io"
+    },
     "main": "lib/index.js",
+    "types": "lib/index.d.ts",
     "files": [
         "lib"
     ],
-    "types": "lib/index.d.ts",
+    "scripts": {
+        "build": "yarn tsc",
+        "ci": "yarn clean && yarn && yarn build",
+        "clean": "yarn clean:lib && yarn clean:modules",
+        "clean:lib": "rimraf lib",
+        "clean:modules": "rimraf node_modules",
+        "lint": "eslint . --ext .ts",
+        "test": "jest --passWithNoTests"
+    },
     "dependencies": {
         "axios": "^0.27.2"
     },
@@ -31,18 +57,8 @@
         "ts-node": "^10.1.0",
         "typescript": "~4.5.2"
     },
-    "scripts": {
-        "build": "yarn clean && yarn tsc",
-        "ci": "yarn tsc",
-        "clean": "rimraf ./lib",
-        "example": "cd example && npx ts-node example.ts",
-        "lint": "eslint . --ext .ts",
-        "test": "jest --passWithNoTests"
-    },
-    "keywords": [],
-    "author": {
-        "email": "info@poprank.io",
-        "name": "PopRank",
-        "url": "https://poprank.io"
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
     }
 }

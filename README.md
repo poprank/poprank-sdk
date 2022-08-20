@@ -32,7 +32,7 @@ yarn add @poprank/sdk
 
 ### Client Setup
 
-Import configure, and instantiate the PopRank API client.
+Import, configure, and instantiate the PopRank API client.
 ```
 import { ClientConfig, PopRankClient } from '@poprank/sdk';
 
