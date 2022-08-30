@@ -1,6 +1,6 @@
 {
     "name": "@poprank/sdk",
-    "version": "1.0.18",
+    "version": "1.0.19",
     "description": "PopRank API client and types",
     "keywords": [
         "api",
