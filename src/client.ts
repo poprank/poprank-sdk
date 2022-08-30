@@ -50,8 +50,8 @@ export class PopRankClient {
      * @param slug The collection identifier used in the PopRank collection page URL.
      * *           If provided, the traits object is included in the response.
      */
-    async getCollection(slug: string): Promise<CollectionWithSeen[]> {
-        const response = (await this.client.get<APIResponse<CollectionWithSeen[]>>(
+    async getCollection(slug: string): Promise<CollectionWithSeen> {
+        const response = (await this.client.get<APIResponse<CollectionWithSeen>>(
             `/collections/${slug}`,
             { params: { slug } },
         )).data;
