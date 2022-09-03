@@ -1,5 +1,5 @@
 import { MAGICEDEN_BASE_COLLECTIONS_URL, MAGICEDEN_BASE_NFTS_URL, OPENSEA_BASE_COLLECTIONS_URL, OPENSEA_BASE_NFTS_URL } from './constants';
-import { Chain, Nft } from './types';
+import { Nft } from './types';
 import { ChainExplorerMap } from './types/explorers';
 import { ChainMarketplaceMap } from './types/marketplaces';
 
@@ -21,7 +21,7 @@ export const aestheticBaseAttributes: Pick<Nft, 'aestheticRank' | 'aestheticRank
  * A mapping of all PopRank supported chains to all
  * of our supported marketplaces.
  *
- * The first marketplace under a chain is considered the "default".
+ * The first marketplace under a chain is considered the default.
  */
 export const chainMarketplaceMap: ChainMarketplaceMap = {
     ethereum: {
@@ -52,13 +52,11 @@ export const chainMarketplaceMap: ChainMarketplaceMap = {
     },
 };
 
-/** Holds the block explorer URL account/address lookup prefix for each chain */
-export const blockExplorerAddressLinkFormatters: Record<Chain, (identifier: string) => string> = {
-    ethereum: (identifier: string) => `https://etherscan.io/address/${identifier}`,
-    polygon: (identifier: string) => `https://polygonscan.com/address/${identifier}`,
-    solana: (identifier: string) => `https://solscan.io/account/${identifier}`,
-};
-
+/**
+ * Mapping of all PopRank supported block explorers, per-chain.
+ *
+ * The first explorer for a given chain is the default.
+ */
 export const chainBlockExplorerMap: ChainExplorerMap = {
     ethereum: {
         etherscan: {
