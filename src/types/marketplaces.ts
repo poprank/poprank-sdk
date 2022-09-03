@@ -16,6 +16,7 @@ export interface MarketplaceInfo {
     collectionUrlFormatter: (address: string) => string;
 }
 
+// ======= Chain-specific marketplace types ======= //
 export type EthereumMarketplace = Record<'ethereum', Record<Extract<MarketplaceIdentifier, 'opensea'>, MarketplaceInfo>>;
 export type PolygonMarketplace = Record<'polygon', Record<Extract<MarketplaceIdentifier, 'opensea'>, MarketplaceInfo>>;
 export type SolanaMarketplace = Record<'solana', Record<Extract<MarketplaceIdentifier, 'magiceden'>, MarketplaceInfo>>;

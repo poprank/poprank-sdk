@@ -16,6 +16,12 @@ export const aestheticBaseAttributes: Pick<Nft, 'aestheticRank' | 'aestheticRank
     aestheticRankReliability: 0,
 };
 
+/**
+ * A mapping of all PopRank supported chains to all
+ * of our supported marketplaces.
+ *
+ * The first marketplace under a chain is considered the "default".
+ */
 export const chainMarketplaceMap: ChainMarketplaceMap = {
     'ethereum': {
         'opensea': {
