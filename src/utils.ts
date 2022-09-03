@@ -57,7 +57,7 @@ export const chainMarketplaceMap: ChainMarketplaceMap = {
  *
  * The first explorer for a given chain is the default.
  */
-export const chainBlockExplorerMap: ChainExplorerMap = {
+export const chainExplorerMap: ChainExplorerMap = {
     ethereum: {
         etherscan: {
             name: "Etherscan",
@@ -76,5 +76,4 @@ export const chainBlockExplorerMap: ChainExplorerMap = {
             addressUrlFormatter: (address: string) => `https://solscan.io/account/${address}`
         }
     }
-
 };
