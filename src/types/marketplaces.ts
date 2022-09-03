@@ -5,7 +5,7 @@ export type MarketplaceIdentifier = typeof marketplaceIdentifiers[number];
 
 export interface MarketplaceInfo {
     /**
-     * Pretty name for marketplace, ie: "OpenSea"
+     * Display name for marketplace, ie: "OpenSea"
      */
     name: string;
     /**

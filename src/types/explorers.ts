@@ -5,7 +5,7 @@ export type ExplorerIdentifier = typeof explorerIdentifiers[number];
 
 export interface ExplorerInfo {
     /**
-     * Pretty name for explorer, ie: "Etherscan"
+     * Display name for explorer, ie: "Etherscan"
      */
     name: string;
     addressUrlFormatter: (address: string) => string;
