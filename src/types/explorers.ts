@@ -11,7 +11,7 @@ export interface ExplorerInfo {
     addressUrlFormatter: (address: string) => string;
 }
 
-// ======= Chain-specific marketplace types ======= //
+// ======= Chain-specific explorer types ======= //
 type ChainExplorer<C extends Chain, E extends ExplorerIdentifier> = Record<C, Record<Extract<ExplorerIdentifier, E>, ExplorerInfo>>;
 
 export type EthereumExplorer = ChainExplorer<'ethereum', 'etherscan'>;
