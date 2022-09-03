@@ -39,8 +39,7 @@
         "clean": "yarn clean:lib && yarn clean:modules",
         "clean:lib": "rimraf lib",
         "clean:modules": "rimraf node_modules",
-        "lint": "eslint . --ext .ts",
-        "test": "jest --passWithNoTests"
+        "lint": "eslint . --ext .ts"
     },
     "dependencies": {
         "axios": "^0.27.2"

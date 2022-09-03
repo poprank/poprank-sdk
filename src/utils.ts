@@ -1,3 +1,4 @@
+import { Chain } from './types';
 import { Nft } from './types/nfts';
 
 /**
@@ -12,4 +13,23 @@ export const aestheticBaseAttributes: Pick<Nft, 'aestheticRank' | 'aestheticRank
     timesSeen: 0,
     timesWon: 0,
     aestheticRankReliability: 0,
+};
+
+export const marketplaceNftLinkFormatters: Record<Chain, (identifier: string) => string> = {
+    'ethereum': (identifier: string) => `https://opensea.io/assets/${identifier}`,
+    'polygon': (identifier: string) => `https://opensea.io/assets/matic/${identifier}`,
+    'solana': (identifier: string) => `https://magiceden.io/item-details/${identifier}`,
+};
+
+export const marketplaceCollectionLinkFormatters: Record<Chain, (identifier: string) => string> = {
+    'ethereum': (identifier: string) => `https://opensea.io/${identifier}`,
+    'polygon': (identifier: string) => `https://opensea.io/${identifier}`,
+    'solana': (identifier: string) => `https://magiceden.io/${identifier}`,
+};
+
+/** Holds the block explorer URL account/address lookup prefix for each chain */
+export const blockExplorerLinkFormatters: Record<Chain, (identifier: string) => string> = {
+    ethereum: (identifier: string) => `https://etherscan.io/address/${identifier}`,
+    polygon: (identifier: string) => `https://polygonscan.com/address/${identifier}`,
+    solana: (identifier: string) => `https://solscan.io/account/${identifier}`,
 };

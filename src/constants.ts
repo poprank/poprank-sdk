@@ -1,9 +1,10 @@
-import { Chain } from "./types/general";
+import { Chain } from "./types";
 
 export const API_BASE_URL = 'https://api.poprank.io';
 
-export const marketplaceLinkPrefixes: Record<Chain, string> = {
-    'ethereum': 'https://opensea.io/assets',
-    'polygon': 'https://opensea.io/assets/matic',
-    'solana': 'https://magiceden.io/item-details',
+/** Holds the block explorer URL account/address lookup prefix for each chain */
+export const blockExplorerDisplayNames: Record<Chain, string> = {
+    ethereum: 'Etherscan',
+    polygon: 'PolygonScan',
+    solana: 'SolScan',
 };
