@@ -43,6 +43,11 @@ export const chainMarketplaceMap: ChainMarketplaceMap = {
             name: "MagicEden",
             nftUrlFormatter: (_address?: string, id?: string) => `${MAGICEDEN_BASE_NFTS_URL}/${id}`,
             collectionUrlFormatter: (address: string) => `${MAGICEDEN_BASE_COLLECTIONS_URL}/${address}`
+        },
+        opensea: {
+            name: "OpenSea",
+            nftUrlFormatter: (address?: string, id?: string) => `${OPENSEA_BASE_NFTS_URL}/solana/${address}/${id}`,
+            collectionUrlFormatter: (address: string) => `${OPENSEA_BASE_COLLECTIONS_URL}/${address}`
         }
     },
 };

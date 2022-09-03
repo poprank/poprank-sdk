@@ -22,7 +22,7 @@ type ChainMarketplace<C extends Chain, M extends MarketplaceIdentifier> = Record
 
 export type EthereumMarketplace = ChainMarketplace<'ethereum', 'opensea'>;
 export type PolygonMarketplace = ChainMarketplace<'polygon', 'opensea'>;
-export type SolanaMarketplace = ChainMarketplace<'solana', 'magiceden'>;
+export type SolanaMarketplace = ChainMarketplace<'solana', 'magiceden' | 'opensea'>;
 
 /**
  * Map of chain to all its marketplaces' info.
