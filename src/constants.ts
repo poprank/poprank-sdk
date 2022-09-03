@@ -1,4 +1,3 @@
-
 export const API_BASE_URL = 'https://api.poprank.io';
 
 export const OPENSEA_BASE_URL = 'https://opensea.io';
