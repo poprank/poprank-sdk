@@ -1,3 +1,4 @@
+import { Chain } from "./general";
 
 export const marketplaceIdentifiers = ['opensea', 'magiceden'] as const;
 export type MarketplaceIdentifier = typeof marketplaceIdentifiers[number];
@@ -17,9 +18,11 @@ export interface MarketplaceInfo {
 }
 
 // ======= Chain-specific marketplace types ======= //
-export type EthereumMarketplace = Record<'ethereum', Record<Extract<MarketplaceIdentifier, 'opensea'>, MarketplaceInfo>>;
-export type PolygonMarketplace = Record<'polygon', Record<Extract<MarketplaceIdentifier, 'opensea'>, MarketplaceInfo>>;
-export type SolanaMarketplace = Record<'solana', Record<Extract<MarketplaceIdentifier, 'magiceden'>, MarketplaceInfo>>;
+type ChainMarketplace<C extends Chain, M extends MarketplaceIdentifier> = Record<C, Record<Extract<MarketplaceIdentifier, M>, MarketplaceInfo>>;
+
+export type EthereumMarketplace = ChainMarketplace<'ethereum', 'opensea'>;
+export type PolygonMarketplace = ChainMarketplace<'polygon', 'opensea'>;
+export type SolanaMarketplace = ChainMarketplace<'solana', 'magiceden'>;
 
 /**
  * Map of chain to all its marketplaces' info.

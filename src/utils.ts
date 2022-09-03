@@ -1,5 +1,6 @@
 import { MAGICEDEN_BASE_COLLECTIONS_URL, MAGICEDEN_BASE_NFTS_URL, OPENSEA_BASE_COLLECTIONS_URL, OPENSEA_BASE_NFTS_URL } from './constants';
 import { Chain, Nft } from './types';
+import { ChainExplorerMap } from './types/explorers';
 import { ChainMarketplaceMap } from './types/marketplaces';
 
 /**
@@ -23,22 +24,22 @@ export const aestheticBaseAttributes: Pick<Nft, 'aestheticRank' | 'aestheticRank
  * The first marketplace under a chain is considered the "default".
  */
 export const chainMarketplaceMap: ChainMarketplaceMap = {
-    'ethereum': {
-        'opensea': {
+    ethereum: {
+        opensea: {
             name: "OpenSea",
             nftUrlFormatter: (address?: string, id?: string) => `${OPENSEA_BASE_NFTS_URL}/${address}/${id}`,
             collectionUrlFormatter: (address: string) => `${OPENSEA_BASE_COLLECTIONS_URL}/${address}`
         }
     },
-    'polygon': {
-        'opensea': {
+    polygon: {
+        opensea: {
             name: "OpenSea",
             nftUrlFormatter: (address?: string, id?: string) => `${OPENSEA_BASE_NFTS_URL}/matic/${address}/${id}`,
             collectionUrlFormatter: (address: string) => `${OPENSEA_BASE_COLLECTIONS_URL}/${address}`
         }
     },
-    'solana': {
-        'magiceden': {
+    solana: {
+        magiceden: {
             name: "MagicEden",
             nftUrlFormatter: (_address?: string, id?: string) => `${MAGICEDEN_BASE_NFTS_URL}/${id}`,
             collectionUrlFormatter: (address: string) => `${MAGICEDEN_BASE_COLLECTIONS_URL}/${address}`
@@ -51,4 +52,26 @@ export const blockExplorerAddressLinkFormatters: Record<Chain, (identifier: stri
     ethereum: (identifier: string) => `https://etherscan.io/address/${identifier}`,
     polygon: (identifier: string) => `https://polygonscan.com/address/${identifier}`,
     solana: (identifier: string) => `https://solscan.io/account/${identifier}`,
+};
+
+export const chainBlockExplorerMap: ChainExplorerMap = {
+    ethereum: {
+        etherscan: {
+            name: "Etherscan",
+            addressUrlFormatter: (address: string) => `https://etherscan.io/address/${address}`
+        }
+    },
+    polygon: {
+        polygonscan: {
+            name: "PolygonScan",
+            addressUrlFormatter: (address: string) => `https://polygonscan.io/address/${address}`
+        }
+    },
+    solana: {
+        solscan: {
+            name: "Solscan",
+            addressUrlFormatter: (address: string) => `https://solscan.io/account/${address}`
+        }
+    }
+
 };
