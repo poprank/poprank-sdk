@@ -21,9 +21,7 @@ export type PolygonMarketplace = Record<'polygon', Record<Extract<MarketplaceIde
 export type SolanaMarketplace = Record<'solana', Record<Extract<MarketplaceIdentifier, 'magiceden'>, MarketplaceInfo>>;
 
 /**
- * Map of all marketplace IDs to their associated info.
+ * Map of chain to all its marketplaces' info.
  */
-export type MarketplaceMap =
+export type ChainMarketplaceMap =
     EthereumMarketplace & PolygonMarketplace & SolanaMarketplace;
-
-// Record<Chain, Partial<Record<MarketplaceIdentifier, MarketplaceInfo>>>;

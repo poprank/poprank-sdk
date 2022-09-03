@@ -1,6 +1,6 @@
 import { MAGICEDEN_BASE_COLLECTIONS_URL, MAGICEDEN_BASE_NFTS_URL, OPENSEA_BASE_COLLECTIONS_URL, OPENSEA_BASE_NFTS_URL } from './constants';
 import { Chain, Nft } from './types';
-import { MarketplaceMap } from './types/marketplaces';
+import { ChainMarketplaceMap } from './types/marketplaces';
 
 /**
  * Base aesthetic attributes for an NFT.
@@ -16,7 +16,7 @@ export const aestheticBaseAttributes: Pick<Nft, 'aestheticRank' | 'aestheticRank
     aestheticRankReliability: 0,
 };
 
-export const marketplaces: MarketplaceMap = {
+export const chainMarketplaceMap: ChainMarketplaceMap = {
     'ethereum': {
         'opensea': {
             name: "OpenSea",
