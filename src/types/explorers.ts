@@ -12,7 +12,7 @@ export interface ExplorerInfo {
 }
 
 // ======= Chain-specific explorer types ======= //
-type ChainExplorer<C extends Chain, E extends ExplorerIdentifier> = Record<C, Record<Extract<ExplorerIdentifier, E>, ExplorerInfo>>;
+type ChainExplorer<C extends Chain, E extends ExplorerIdentifier> = Record<C, Record<E, ExplorerInfo>>;
 
 export type EthereumExplorer = ChainExplorer<'ethereum', 'etherscan'>;
 export type PolygonExplorer = ChainExplorer<'polygon', 'polygonscan'>;

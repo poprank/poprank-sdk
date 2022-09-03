@@ -18,7 +18,7 @@ export interface MarketplaceInfo {
 }
 
 // ======= Chain-specific marketplace types ======= //
-type ChainMarketplace<C extends Chain, M extends MarketplaceIdentifier> = Record<C, Record<Extract<MarketplaceIdentifier, M>, MarketplaceInfo>>;
+type ChainMarketplace<C extends Chain, M extends MarketplaceIdentifier> = Record<C, Record<M, MarketplaceInfo>>;
 
 export type EthereumMarketplace = ChainMarketplace<'ethereum', 'opensea'>;
 export type PolygonMarketplace = ChainMarketplace<'polygon', 'opensea'>;
