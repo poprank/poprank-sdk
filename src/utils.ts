@@ -28,7 +28,7 @@ export const marketplaceCollectionLinkFormatters: Record<Chain, (identifier: str
 };
 
 /** Holds the block explorer URL account/address lookup prefix for each chain */
-export const blockExplorerLinkFormatters: Record<Chain, (identifier: string) => string> = {
+export const blockExplorerAddressLinkFormatters: Record<Chain, (identifier: string) => string> = {
     ethereum: (identifier: string) => `https://etherscan.io/address/${identifier}`,
     polygon: (identifier: string) => `https://polygonscan.com/address/${identifier}`,
     solana: (identifier: string) => `https://solscan.io/account/${identifier}`,
