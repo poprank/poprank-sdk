@@ -1,5 +1,6 @@
-import { Chain } from './types';
-import { Nft } from './types/nfts';
+import { MAGICEDEN_BASE_COLLECTIONS_URL, MAGICEDEN_BASE_NFTS_URL, OPENSEA_BASE_COLLECTIONS_URL, OPENSEA_BASE_NFTS_URL } from './constants';
+import { Chain, Nft } from './types';
+import { MarketplaceMap } from './types/marketplaces';
 
 /**
  * Base aesthetic attributes for an NFT.
@@ -15,16 +16,28 @@ export const aestheticBaseAttributes: Pick<Nft, 'aestheticRank' | 'aestheticRank
     aestheticRankReliability: 0,
 };
 
-export const marketplaceNftLinkFormatters: Record<Chain, (identifier: string) => string> = {
-    'ethereum': (identifier: string) => `https://opensea.io/assets/${identifier}`,
-    'polygon': (identifier: string) => `https://opensea.io/assets/matic/${identifier}`,
-    'solana': (identifier: string) => `https://magiceden.io/item-details/${identifier}`,
-};
-
-export const marketplaceCollectionLinkFormatters: Record<Chain, (identifier: string) => string> = {
-    'ethereum': (identifier: string) => `https://opensea.io/${identifier}`,
-    'polygon': (identifier: string) => `https://opensea.io/${identifier}`,
-    'solana': (identifier: string) => `https://magiceden.io/${identifier}`,
+export const marketplaces: MarketplaceMap = {
+    'ethereum': {
+        'opensea': {
+            name: "OpenSea",
+            nftUrlFormatter: (address?: string, id?: string) => `${OPENSEA_BASE_NFTS_URL}/${address}/${id}`,
+            collectionUrlFormatter: (address: string) => `${OPENSEA_BASE_COLLECTIONS_URL}/${address}`
+        }
+    },
+    'polygon': {
+        'opensea': {
+            name: "OpenSea",
+            nftUrlFormatter: (address?: string, id?: string) => `${OPENSEA_BASE_NFTS_URL}/matic/${address}/${id}`,
+            collectionUrlFormatter: (address: string) => `${OPENSEA_BASE_COLLECTIONS_URL}/${address}`
+        }
+    },
+    'solana': {
+        'magiceden': {
+            name: "MagicEden",
+            nftUrlFormatter: (_address?: string, id?: string) => `${MAGICEDEN_BASE_NFTS_URL}/${id}`,
+            collectionUrlFormatter: (address: string) => `${MAGICEDEN_BASE_COLLECTIONS_URL}/${address}`
+        }
+    },
 };
 
 /** Holds the block explorer URL account/address lookup prefix for each chain */

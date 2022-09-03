@@ -22,3 +22,4 @@ export type APIResponse<T> = APISuccessResponse<T> | APIFailureResponse;
  * @see https://axios-http.com/docs/req_config
  */
 export type ClientConfig = AxiosRequestConfig;
+
