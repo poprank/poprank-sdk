@@ -13,7 +13,7 @@ export interface MarketplaceInfo {
      * whereas MagicEden for Solana only requires the NFT's ID
      * (it's mint address)
      */
-    nftUrlFormatter: (address?: string, id?: string) => string;
+    nftUrlFormatter: (id: string, address?: string) => string;
     collectionUrlFormatter: (address: string) => string;
 }
 
