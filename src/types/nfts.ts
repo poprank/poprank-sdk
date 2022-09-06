@@ -105,6 +105,7 @@ export interface GetNftsOptions {
     readonly asc?: boolean;
     readonly sortBy?: SortBy;
     readonly traitFilters?: string[];
+    readonly ids?: string[];
     readonly minAesthetic?: number;
     readonly maxAesthetic?: number;
     readonly minRarityTraitSum?: number;
