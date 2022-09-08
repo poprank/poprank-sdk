@@ -1,4 +1,4 @@
-import { Chain } from "./types";
+import { Chain, ChainIdentfierLabel } from "./types";
 
 export const API_BASE_URL = 'https://api.poprank.io';
 
@@ -10,10 +10,9 @@ export const MAGICEDEN_BASE_URL = 'https://magiceden.io';
 export const MAGICEDEN_BASE_COLLECTIONS_URL = `${MAGICEDEN_BASE_URL}/marketplace`;
 export const MAGICEDEN_BASE_NFTS_URL = `${MAGICEDEN_BASE_URL}/item-details`;
 
-const evmLabels = {
+const evmLabels: ChainIdentfierLabel = {
     collectionId: "Contract Address",
     tokenId: "Token ID",
-    tokenStandard: "ERC721"
 };
 
 /**
@@ -21,12 +20,11 @@ const evmLabels = {
  * eg: on EVM chains, we have a "Contract Address", but on Solana that's
  * referred to as an "On-chain Collection"
  */
-export const chainIdentifierLabels: Record<Chain, { collectionId: string; tokenId: string; tokenStandard: string; }> = {
+export const chainIdentifierLabels: Record<Chain, ChainIdentfierLabel> = {
     ethereum: evmLabels,
     polygon: evmLabels,
     solana: {
         collectionId: "On-chain Collection",
-        tokenId: "Mint Account",
-        tokenStandard: 'NonFungible'
+        tokenId: "Mint Account"
     }
 };

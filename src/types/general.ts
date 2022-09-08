@@ -23,3 +23,7 @@ export type APIResponse<T> = APISuccessResponse<T> | APIFailureResponse;
  */
 export type ClientConfig = AxiosRequestConfig;
 
+export interface ChainIdentfierLabel {
+    collectionId: string;
+    tokenId: string;
+}
