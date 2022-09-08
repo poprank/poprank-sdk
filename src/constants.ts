@@ -37,7 +37,7 @@ export const CHAIN_TERM_LABELS: Record<Chain, ChainTermLabels> = {
  *
  * The first marketplace under a chain is considered the default.
  */
-export const CHAIN_MARKETLACE_MAP: ChainMarketplaceMap = {
+export const CHAIN_MARKETPLACE_MAP: ChainMarketplaceMap = {
     ethereum: {
         opensea: {
             name: "OpenSea",
