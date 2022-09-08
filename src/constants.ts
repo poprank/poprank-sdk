@@ -12,7 +12,7 @@ export const MAGICEDEN_BASE_URL = 'https://magiceden.io';
 export const MAGICEDEN_BASE_COLLECTIONS_URL = `${MAGICEDEN_BASE_URL}/marketplace`;
 export const MAGICEDEN_BASE_NFTS_URL = `${MAGICEDEN_BASE_URL}/item-details`;
 
-const evmLabels: ChainTermLabel = {
+const EVM_LABELS: ChainTermLabel = {
     collectionId: "Contract Address",
     tokenId: "Token ID",
 };
@@ -23,8 +23,8 @@ const evmLabels: ChainTermLabel = {
  * referred to as an "On-chain Collection"
  */
 export const CHAIN_TERM_LABELS: Record<Chain, ChainTermLabel> = {
-    ethereum: evmLabels,
-    polygon: evmLabels,
+    ethereum: EVM_LABELS,
+    polygon: EVM_LABELS,
     solana: {
         collectionId: "On-chain Collection",
         tokenId: "Mint Account"
