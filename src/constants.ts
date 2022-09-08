@@ -1,4 +1,4 @@
-import { Chain, ChainTermLabel } from "./types";
+import { Chain, ChainTermLabels } from "./types";
 import { ChainExplorerMap } from "./types/explorers";
 import { ChainMarketplaceMap } from "./types/marketplaces";
 
@@ -12,7 +12,7 @@ export const MAGICEDEN_BASE_URL = 'https://magiceden.io';
 export const MAGICEDEN_BASE_COLLECTIONS_URL = `${MAGICEDEN_BASE_URL}/marketplace`;
 export const MAGICEDEN_BASE_NFTS_URL = `${MAGICEDEN_BASE_URL}/item-details`;
 
-const EVM_LABELS: ChainTermLabel = {
+const EVM_LABELS: ChainTermLabels = {
     collectionId: "Contract Address",
     tokenId: "Token ID",
 };
@@ -22,7 +22,7 @@ const EVM_LABELS: ChainTermLabel = {
  * eg: on EVM chains, we have a "Contract Address", but on Solana that's
  * referred to as an "On-chain Collection"
  */
-export const CHAIN_TERM_LABELS: Record<Chain, ChainTermLabel> = {
+export const CHAIN_TERM_LABELS: Record<Chain, ChainTermLabels> = {
     ethereum: EVM_LABELS,
     polygon: EVM_LABELS,
     solana: {
