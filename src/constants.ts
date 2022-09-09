@@ -87,7 +87,7 @@ export const CHAIN_EXPLORER_MAP: ChainExplorerMap = {
     solana: {
         solscan: {
             name: "Solscan",
-            addressUrlFormatter: (address: string) => `https://solscan.io/account/${address}`
+            addressUrlFormatter: (address: string) => `https://solscan.io/token/${address}`
         }
     }
 };
